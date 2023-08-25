@@ -3,8 +3,8 @@
 --]]
 
 -- 行号
-vim.opt.number = false
-vim.opt.relativenumber = false
+vim.opt.number = true
+vim.opt.relativenumber = true
 
 -- 缩进
 vim.opt.tabstop = 4             -- tab 时的缩进
