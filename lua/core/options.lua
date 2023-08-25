@@ -3,8 +3,8 @@
 --]]
 
 -- 行号
-vim.opt.number = false
-vim.opt.relativenumber = false
+vim.opt.number = true
+vim.opt.relativenumber = true
 
 -- 缩进
 vim.opt.tabstop = 4             -- tab 时的缩进
@@ -21,3 +21,4 @@ vim.opt.clipboard:append("unnamedplus")
 -- 外观
 vim.opt.termguicolors = true    -- 使用终端颜色
 vim.opt.signcolumn = "no"       -- 左侧是否多一列
+vim.opt.hlsearch = false
