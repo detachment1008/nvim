@@ -16,4 +16,26 @@ vim.keymap.set('n', "<leader>e", ":NvimTreeToggle<CR>")
 
 -- --------终端模式-------- --
 vim.keymap.set('t', "<ESC>", "<C-\\><C-n>")
-vim.keymap.set('n', "<leader>t", ":split term://~/.config/nvim/lua/core//2136:/bin/zsh<CR>a")
+
+-- 定义函数来获取当前的操作系统
+local function get_current_os()
+    -- 导入 vim.loop 模块
+    local os_name
+    -- 获取平台类型
+    local platform = vim.loop.os_uname().sysname
+    -- 根据平台类型确定操作系统名称
+    if platform == "Linux" then
+        os_name = "Linux"
+        vim.keymap.set('n', "<leader>t", ":split term://%:h//72921:/bin/bash<CR>a")
+    elseif platform == "Darwin" then
+        os_name = "macOS"
+        vim.keymap.set('n', "<leader>t", ":split term://%:h//2136:/bin/zsh<CR>a")
+    elseif platform == "Windows" then
+        os_name = "Windows"
+    else
+        os_name = "Unknown"
+    end
+    return os_name
+end
+-- 调用函数获取当前操作系统
+local current_os = get_current_os()
