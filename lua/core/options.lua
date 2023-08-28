@@ -7,10 +7,13 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 
 -- 缩进
-vim.opt.tabstop = 4             -- tab 时的缩进
-vim.opt.shiftwidth = 4          -- << 和 >> 时的缩进
-vim.opt.expandtab = true        -- 用空格代替 Tab 字符
-vim.opt.autoindent = true       -- 在新行中根据上一行自动缩进
+vim.opt.tabstop = 4                     -- tab 时的缩进
+vim.opt.shiftwidth = 4                  -- << 和 >> 时的缩进
+vim.opt.expandtab = true                -- 用空格代替 Tab 字符
+vim.opt.autoindent = true               -- 在新行中根据上一行自动缩进
+-- vim.opt.formatoptions:remove('c')       -- 移除复制注释
+-- vim.opt.formatoptions:remove('r')       -- 移除自动缩进
+-- vim.opt.formatoptions:remove('o')       -- 移除自动换行
 
 -- 启用鼠标
 vim.opt.mouse:append("a")
