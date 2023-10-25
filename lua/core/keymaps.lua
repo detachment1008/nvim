@@ -12,7 +12,8 @@ vim.keymap.set('n', "<leader>hs", ":set hlsearch!<CR>")
 vim.keymap.set('n', "<F5>", ":w<CR>:!g++ % -o a.out && ./a.out<CR>")
 
 -- --------插件-------- --
-vim.keymap.set('n', "<leader>e", ":NvimTreeToggle<CR>")
+vim.keymap.set('n', "<leader>e", ":NvimTreeToggle<CR>") -- 文件树
+vim.keymap.set('n', "<leader>so", ":SymbolsOutline<CR>") -- symbols-outline
 
 -- --------终端模式-------- --
 vim.keymap.set('t', "<ESC>", "<C-\\><C-n>")

@@ -61,6 +61,9 @@ return require "packer".startup(function(use)
 
     use "nvim-treesitter/nvim-treesitter-context"
 
+    use "simrat39/symbols-outline.nvim"
+
+
 
     if packer_bootstrap then
         require "packer".sync()
