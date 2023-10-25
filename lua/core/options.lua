@@ -25,3 +25,7 @@ vim.opt.clipboard:append("unnamedplus")
 vim.opt.termguicolors = true    -- 使用终端颜色
 vim.opt.signcolumn = "no"       -- 左侧是否多一列
 vim.opt.hlsearch = false
+
+-- 智能匹配(忽略大小写)
+vim.opt.smartcase = true
+vim.opt.ignorecase = true
