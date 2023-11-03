@@ -24,7 +24,7 @@ function autoImpl:ReadViewFile()
         local file_name = behaviorPattern[i][1]
         func_queue[file_name] = {}
     end
-    local pattern = "{ behavior = "
+    local pattern = "^[%s]*{ behavior = "
     path = vim.fn.expand('%')
     -- local file_name = vim.api.nvim_buf_get_name(3)
     local file_contents = vim.fn.readfile(path)
@@ -54,9 +54,11 @@ end
 
 function autoImpl:GenerateImpl(fileName, functionName)
     local str = {}
-    table.insert(str, string.format("function %s:%s() end", fileName, functionName))
-    -- table.insert(str, "")
-    -- table.insert(str, "end")
+    table.insert(str, string.format("function %s:%s()", fileName, functionName))
+    table.insert(str, "")
+    table.insert(str, "    self.currentGameBoard:Step()")
+    table.insert(str, "end")
+    table.insert(str, "")
     -- return string.format("function %s:%s()\n\nend\n", fileName, functionName)
     return str
 end
@@ -86,15 +88,15 @@ function autoImpl:AutoImpl()
                 end
                 local total_impl_str = self:GenerateImpl(i, func_name)
                 self:insert_text(default_pos + 2, total_impl_str, total_path)
+                default_pos = default_pos + #total_impl_str
             end
         end
     end
 end
 
 function autoImpl:insert_text(lineNumber, txt, filepath)
-    local line_number = lineNumber
     for i=1,#txt do
-        line_number = line_number + i - 1
+        local line_number = lineNumber + i - 1
         local text = txt[i]
         local bufnr = vim.fn.bufnr(filepath, true) -- 获取文件的缓冲区编号
         vim.api.nvim_set_current_buf(bufnr)
@@ -103,15 +105,15 @@ function autoImpl:insert_text(lineNumber, txt, filepath)
             bufnr = vim.fn.bufnr(filepath, true)
         end
         vim.api.nvim_buf_set_lines(bufnr, line_number - 1, line_number - 1, false, {text})
-        vim.cmd("w")
     end
+    vim.cmd("w")
 end
 
 function autoImpl:IsFunctionImpl(file_name, func_name)
     local head = "[-]+BehaviorTree[-]+."
     local default_pos = nil
     local file_contents = vim.fn.readfile(file_name)
-    local pattern = "function%s[%g]+:([%w_]+)[%s]*[%(%)]"
+    local pattern = "function%s[%g]+[:.]([%w_]+)[%s]*[%(%)]"
     for i,line in ipairs(file_contents) do
         if not default_pos then
             local default = string.find(line, head)
