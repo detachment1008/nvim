@@ -68,7 +68,7 @@ function autoImpl:GetTargetFilePath(targetFileName)
     if idx then
         return path:sub(1, idx) .. targetFileName .. ".lua"
     else
-        return nil
+        return targetFileName .. ".lua"
     end
 end
 
