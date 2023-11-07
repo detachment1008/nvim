@@ -56,6 +56,15 @@ return require "packer".startup(function(use)
     use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
     use "nvim-treesitter/nvim-treesitter-context" -- 超框显示代码块头
     use "simrat39/symbols-outline.nvim" -- 函数等符号大纲
+    -- hop(easymotion)
+    use {
+        'phaazon/hop.nvim',
+        branch = 'v2', -- optional but strongly recommended
+        config = function()
+            -- you can configure Hop the way you like here; see :h hop-config
+            require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
+        end
+    }
 
 
 
