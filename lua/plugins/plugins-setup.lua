@@ -45,7 +45,8 @@ return require "packer".startup(function(use)
     -- 以后再来研究这两个
     -- use "akinsho/bufferline.nvim" --buffer分割线
     -- use "lewis6991/gitsigns.nvim" -- 左则git提示
-    use {"nvim-telescope/telescope.nvim", tag = "0.1.1", requires = {{"nvim-lua/plenary.nvim"}}} -- 文件检索
+    use {"nvim-telescope/telescope.nvim", tag = "0.1.4", requires = {{"nvim-lua/plenary.nvim"}}} -- 文件检索
+    use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' } -- 用于提升 telescope 性能
     use "Mofiqul/vscode.nvim" -- vscode主题
     -- markdown-preview
     -- install without yarn or npm
