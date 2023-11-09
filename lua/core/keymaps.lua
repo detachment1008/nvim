@@ -36,10 +36,10 @@ local function get_current_os()
     -- 根据平台类型确定操作系统名称
     if platform == "Linux" then
         os_name = "Linux"
-        vim.keymap.set('n', "<leader>t", ":split term://%:h//72921:/bin/bash<CR>a")
+        vim.keymap.set('n', "<leader>t", ":split<CR><C-w>r:e term://%:h//72921:/bin/bash<CR>a")
     elseif platform == "Darwin" then
         os_name = "macOS"
-        vim.keymap.set('n', "<leader>t", ":split term://%:h//2136:/bin/zsh<CR>a")
+        vim.keymap.set('n', "<leader>t", ":split<CR><C-w>r:e term://%:h//2136:/bin/zsh<CR>a")
     elseif platform == "Windows" then
         os_name = "Windows"
     else
