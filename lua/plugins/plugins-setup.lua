@@ -24,30 +24,67 @@ vim.cmd [[
 
 return require "packer".startup(function(use)
 
-    -- 使用 use+仓库名 就可以了
-    use "wbthomason/packer.nvim"    -- packer
-    use "folke/tokyonight.nvim"     -- tokyonight
-    use {"nvim-lualine/lualine.nvim", requires = {"kyazdani42/nvim-web-devicons", opt = true}} -- 状态栏+状态栏图标
-    use {"nvim-tree/nvim-tree.lua", requires = {"nvim-tree/nvim-web-devicons"}} --文档树+文档树图标
-    use "christoomey/vim-tmux-navigator" -- 用ctrl-hjkl来定位窗口
-    use "nvim-treesitter/nvim-treesitter" -- 语法高亮
-    use "p00f/nvim-ts-rainbow" -- 配合treesitter，不同括号颜色区分
-    use {"williamboman/mason.nvim", "williamboman/mason-lspconfig.nvim", "neovim/nvim-lspconfig"} -- 支持语法提示的lsp三个插件，中间的相当于是桥梁
+    -- packer
+    use "wbthomason/packer.nvim"
+
+    -- tokyonight
+    use "folke/tokyonight.nvim"
+
+    -- 状态栏 + 状态栏图标
+    use {"nvim-lualine/lualine.nvim", requires = {"kyazdani42/nvim-web-devicons", opt = true}}
+
+    -- 文档树 + 文档树图标
+    use {"nvim-tree/nvim-tree.lua", requires = {"nvim-tree/nvim-web-devicons"}}
+
+    -- 用ctrl-hjkl来定位窗口
+    use "christoomey/vim-tmux-navigator"
+
+    -- 语法高亮
+    use "nvim-treesitter/nvim-treesitter"
+
+    -- 配合 treesitter，不同括号颜色区分
+    use "p00f/nvim-ts-rainbow"
+
+    -- lsp
+    -- 支持语法提示的lsp三个插件，中间的相当于是桥梁
+    use {"williamboman/mason.nvim", "williamboman/mason-lspconfig.nvim", "neovim/nvim-lspconfig"}
+
     -- 自动补全
     use "hrsh7th/nvim-cmp"
     use "hrsh7th/cmp-nvim-lsp"
-    use "L3MON4D3/LuaSnip" -- snippets引擎，不装这个自动补全会出问题
+
+    -- snippets引擎，不装这个自动补全会出问题
+    use "L3MON4D3/LuaSnip"
     use "saadparwaiz1/cmp_luasnip"
     use "rafamadriz/friendly-snippets"
-    use "hrsh7th/cmp-path" -- 文件路径
-    use "numToStr/Comment.nvim" -- gcc和gc注释
-    use "windwp/nvim-autopairs" -- 自动补全括号
+
+    -- 文件路径
+    use "hrsh7th/cmp-path"
+
+    -- gcc 和 gc 注释
+    use "numToStr/Comment.nvim"
+
+    -- 自动补全括号
+    use "windwp/nvim-autopairs"
+
     -- 以后再来研究这两个
-    -- use "akinsho/bufferline.nvim" --buffer分割线
-    -- use "lewis6991/gitsigns.nvim" -- 左则git提示
-    use {"nvim-telescope/telescope.nvim", tag = "0.1.4", requires = {{"nvim-lua/plenary.nvim"}}} -- 文件检索
-    use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' } -- 用于提升 telescope 性能
-    use "Mofiqul/vscode.nvim" -- vscode主题
+    --[[
+        --buffer分割线
+        use "akinsho/bufferline.nvim"
+
+        -- 左则git提示
+        use "lewis6991/gitsigns.nvim"
+    ]]
+
+    -- 文件检索
+    use {"nvim-telescope/telescope.nvim", tag = "0.1.4", requires = {{"nvim-lua/plenary.nvim"}}}
+
+    -- 用于提升 telescope 性能
+    use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
+
+    -- vscode主题
+    use "Mofiqul/vscode.nvim"
+
     -- markdown-preview
     -- install without yarn or npm
     use({
@@ -55,8 +92,13 @@ return require "packer".startup(function(use)
         run = function() vim.fn["mkdp#util#install"]() end,
     })
     use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
-    use "nvim-treesitter/nvim-treesitter-context" -- 超框显示代码块头
-    use "simrat39/symbols-outline.nvim" -- 函数等符号大纲
+
+    -- 超框显示代码块头
+    use "nvim-treesitter/nvim-treesitter-context"
+
+    -- 函数等符号大纲
+    use "simrat39/symbols-outline.nvim"
+
     -- hop(easymotion)
     use {
         'phaazon/hop.nvim',
