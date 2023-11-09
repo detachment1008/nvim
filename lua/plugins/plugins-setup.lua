@@ -112,6 +112,9 @@ return require "packer".startup(function(use)
     -- debugger: nvim-dap
     -- use 'mfussenegger/nvim-dap'
 
+    -- gitsign
+    use "lewis6991/gitsigns.nvim"
+
     if packer_bootstrap then
         require "packer".sync()
     end
