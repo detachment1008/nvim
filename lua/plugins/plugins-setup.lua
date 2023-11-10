@@ -110,7 +110,8 @@ return require "packer".startup(function(use)
     }
 
     -- debugger: nvim-dap
-    use 'mfussenegger/nvim-dap'
+    use 'mfussenegger/nvim-dap' -- dap
+    use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} } -- dap ui
 
     -- gitsign
     use "lewis6991/gitsigns.nvim"

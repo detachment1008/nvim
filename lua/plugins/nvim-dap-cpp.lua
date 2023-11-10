@@ -4,7 +4,8 @@ local dap = require('dap')
 dap.adapters.cppdbg = {
     id = 'cppdbg',
     type = 'executable',
-    command = '/absolute/path/to/cpptools/extension/debugAdapters/bin/OpenDebugAD7',
+    -- command = vim.loop.os_uname().sysname == "Linux" and '/home/dcr/Downloads/extension/debugAdapters/bin/OpenDebugAD7' or "",
+    command = '/home/dcr/Downloads/extension/debugAdapters/bin/OpenDebugAD7'
 }
 
 -- Configurations
@@ -33,7 +34,7 @@ dap.configurations.cpp = {
     },
 }
 
--- -- pretty-printing
+-- pretty-printing
 setupCommands = {
     {
         text = '-enable-pretty-printing',
