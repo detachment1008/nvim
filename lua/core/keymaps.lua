@@ -9,22 +9,34 @@ vim.g.mapleader = ' '
 -- 取消高亮
 vim.keymap.set('n', "<leader>hs", ":set hlsearch!<CR>")
 -- F5 c++编译执行
-vim.keymap.set('n', "<F5>", ":w<CR>:!g++ % -o a.out && ./a.out<CR>")
+-- vim.keymap.set('n', "<F5>", ":w<CR>:!g++ % -o a.out && ./a.out<CR>")
 
 -- -------- 命令行模式-------- --
 
 -- --------插件-------- --
 
-vim.keymap.set('n', "<leader>e", ":NvimTreeToggle<CR>") -- 文件树
-vim.keymap.set('n', "<leader>so", ":SymbolsOutline<CR>") -- symbols-outline
+-- nvim tree
+vim.keymap.set('n', "<leader>e", ":NvimTreeToggle<CR>")
 
+-- symbol outline
+vim.keymap.set('n', "<leader>so", ":SymbolsOutline<CR>")
+
+-- hop(easymotion)
 vim.keymap.set('n', "<leader>c", ":HopChar1<CR>") -- hop: 跳转任意字符
 vim.keymap.set('n', "<leader>w", ":HopWord<CR>") -- hop: 跳转任意单词
 vim.keymap.set('n', "<leader>l", ":HopLine<CR>") -- hop: 跳转任意行
 -- vim.keymap.set('n', "<leader>ls", ":HopLineStart<CR>") -- hop: 跳转任意行开始 -- 会引起 :<leader>l 延迟
 vim.keymap.set('n', "<leader>a", ":HopAnywhere<CR>") -- hop: 跳转任意位置
 
+-- dap
+local dap = require "dap"
+vim.keymap.set('n', "<F5>", dap.continue) -- 开始执行
+vim.keymap.set('n', "<F9>", dap.toggle_breakpoint) -- 下断点
+vim.keymap.set('n', "<F10>", dap.step_into) -- 下一步执行
+vim.keymap.set('n', "<F11>", dap.step_over) -- 下一步执行
+
 -- --------终端模式-------- --
+
 vim.keymap.set('t', "<ESC>", "<C-\\><C-n>")
 
 -- 定义函数来获取当前的操作系统
