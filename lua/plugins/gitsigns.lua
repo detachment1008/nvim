@@ -19,7 +19,7 @@ require('gitsigns').setup {
     current_line_blame_opts = {
         virt_text = true,
         virt_text_pos = 'eol', -- 'eol' | 'overlay' | 'right_align'
-        delay = 1000,
+        delay = 500,
         ignore_whitespace = false,
         virt_text_priority = 100,
     },
@@ -70,7 +70,7 @@ require('gitsigns').setup {
         map('n', '<leader>gu', gs.undo_stage_hunk) -- 当前块取消暂存(似乎有 bug?)
         map('n', '<leader>gp', gs.preview_hunk) -- 查看当前块的修改
         map('n', '<leader>gb', function() gs.blame_line{full=true} end) -- 查看当前块最近一次提交的修改记录
-        -- map('n', '<leader>tb', gs.toggle_current_line_blame)
+        map('n', '<leader>gl', gs.toggle_current_line_blame)
         map('n', '<leader>gd', gs.diffthis) -- 查看当前文件的修改记录: 左边是原始的，右边是修改后的
         -- map('n', '<leader>hD', function() gs.diffthis('~') end) -- 似乎和上面的相同
         -- map('n', '<leader>td', gs.toggle_deleted) -- 不知道是什么意思
@@ -81,5 +81,3 @@ require('gitsigns').setup {
         map({'o', 'x'}, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
     end
 }
-
-vim.cmd(":Gitsigns toggle_current_line_blame")
