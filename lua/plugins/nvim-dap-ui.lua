@@ -84,6 +84,7 @@ dapui.setup({
             elements = {
                 "repl",
                 "breakpoints",
+                "console"
             },
             size = 0.2, -- 元素高度所占比例
             position = "bottom",
