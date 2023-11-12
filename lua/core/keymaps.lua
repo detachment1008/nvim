@@ -32,8 +32,8 @@ vim.keymap.set('n', "<leader>a", ":HopAnywhere<CR>") -- hop: 跳转任意位置
 local dap = require "dap"
 vim.keymap.set('n', "<F5>", dap.continue) -- 开始执行
 vim.keymap.set('n', "<F9>", dap.toggle_breakpoint) -- 下断点
-vim.keymap.set('n', "<F10>", dap.step_into) -- 下一步执行
-vim.keymap.set('n', "<F11>", dap.step_over) -- 下一步执行
+vim.keymap.set('n', "<F10>", dap.step_over) -- 下一步执行
+vim.keymap.set('n', "<F11>", dap.step_into) -- 下一步执行
 
 -- --------终端模式-------- --
 

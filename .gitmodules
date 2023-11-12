@@ -1,0 +1,3 @@
+[submodule "extensions/local-lua-debugger-vscode"]
+	path = extensions/local-lua-debugger-vscode
+	url = https://github.com/tomblind/local-lua-debugger-vscode

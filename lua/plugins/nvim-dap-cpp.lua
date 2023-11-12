@@ -4,8 +4,7 @@ local dap = require('dap')
 dap.adapters.cppdbg = {
     id = 'cppdbg',
     type = 'executable',
-    -- command = vim.loop.os_uname().sysname == "Linux" and '/home/dcr/Downloads/extension/debugAdapters/bin/OpenDebugAD7' or "",
-    command = '/home/dcr/Downloads/extension/debugAdapters/bin/OpenDebugAD7'
+    command = '/home/dcr/.config/nvim/extensions/extension/debugAdapters/bin/OpenDebugAD7'
 }
 
 -- Configurations
