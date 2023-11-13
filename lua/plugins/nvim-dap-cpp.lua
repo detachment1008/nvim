@@ -1,10 +1,12 @@
 local dap = require('dap')
 
+local path = vim.loop.os_uname().sysname == "macOS" and "/Users/bole/.config/nvim/extensions/extension/debugAdapters/bin/OpenDebugAD7" or '/home/dcr/.config/nvim/extensions/extension/debugAdapters/bin/OpenDebugAD7'
+
 -- Adapter
 dap.adapters.cppdbg = {
     id = 'cppdbg',
     type = 'executable',
-    command = '/home/dcr/.config/nvim/extensions/extension/debugAdapters/bin/OpenDebugAD7'
+    command = path
 }
 
 -- Configurations
