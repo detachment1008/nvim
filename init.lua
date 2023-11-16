@@ -4,6 +4,7 @@ require "core/options"
 require "core/keymaps"
 require "core/autocommands"
 require "core/autoImpl"
+require "core/autoFold"
 
 -- 插件
 require "plugins/lualine"

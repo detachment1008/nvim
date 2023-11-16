@@ -131,38 +131,11 @@ function autoImpl:IsFunctionImpl(file_name, func_name)
 end
 
 function autoImpl:FindFunctionEnd(file_contents, start_pos)
-    local stack = {}
-    local black_list = {
-        "if",
-        "while",
-        "function",
-        "do",
-        "repeat"
-    }
-    local end_list = {
-        "end",
-        "until"
-    }
+    local pattern = "^end"
     for i=start_pos + 1,#file_contents do
         local line = file_contents[i]
-        if not line then
-            return nil
-        end
-        for _,v in ipairs(black_list) do
-            if string.find(line, v) then
-                table.insert(stack, true)
-                break
-            end
-        end
-        for _,v in ipairs(end_list) do
-            if string.find(line, v) then
-                if #stack == 0 then
-                    return i
-                else
-                    table.remove(stack)
-                    break
-                end
-            end
+        if string.find(line, pattern) then
+            return i
         end
     end
 end
