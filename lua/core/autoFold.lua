@@ -1,11 +1,19 @@
-local autoImpl = require "core.autoImpl"
+local autoFold = {}
 
 local enable_file_type = {
     "lua",
 }
-
-local autoFold = {}
+local function FindFunctionEnd(file_contents, start_pos)
+    local pattern = "^end"
+    for i=start_pos + 1,#file_contents do
+        local line = file_contents[i]
+        if string.find(line, pattern) then
+            return i
+        end
+    end
+end
 local flag = false
+
 function autoFold:ToggleFold()
     local t = true
     for _,v in pairs(enable_file_type) do
@@ -31,7 +39,7 @@ function autoFold:ToggleFold()
         if result then
             vim.cmd("normal " .. i .. "G")
             vim.cmd("normal V")
-            local end_line = autoImpl:FindFunctionEnd(file_contents, i)
+            local end_line = FindFunctionEnd(file_contents, i)
             vim.cmd("normal " .. end_line .. "G")
             vim.cmd("normal zf")
         end
