@@ -9,7 +9,7 @@ vim.g.mapleader = ' '
 -- 取消高亮
 vim.keymap.set('n', "<leader>hs", ":set hlsearch!<CR>")
 -- F5 c++编译执行
--- vim.keymap.set('n', "<F5>", ":w<CR>:!g++ % -o a.out && ./a.out<CR>")
+vim.keymap.set('n', "<f6>", ":w<CR>:!g++ % -o a.out && ./a.out<CR>")
 
 -- -------- 命令行模式-------- --
 
@@ -24,8 +24,8 @@ vim.keymap.set('n', "<leader>so", ":SymbolsOutline<CR>")
 -- hop(easymotion)
 vim.keymap.set('n', "<leader>c", ":HopChar1<CR>") -- hop: 跳转任意字符
 vim.keymap.set('n', "<leader>w", ":HopWord<CR>") -- hop: 跳转任意单词
-vim.keymap.set('n', "<leader>l", ":HopLine<CR>") -- hop: 跳转任意行
--- vim.keymap.set('n', "<leader>ls", ":HopLineStart<CR>") -- hop: 跳转任意行开始 -- 会引起 :<leader>l 延迟
+-- vim.keymap.set('n', "<leader>l", ":HopLine<CR>") -- hop: 跳转任意行
+vim.keymap.set('n', "<leader>l", ":HopLineStart<CR>") -- hop: 跳转任意行开始
 vim.keymap.set('n', "<leader>a", ":HopAnywhere<CR>") -- hop: 跳转任意位置
 
 -- dap
