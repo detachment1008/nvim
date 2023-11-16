@@ -1,8 +1,8 @@
 local dap = require("dap")
 -- Adapter
 
-local path = vim.loop.os_uname().sysname == "macOS" and "/Users/bole/.config/nvim/extensions/local-lua-debugger-vscode/" or "/home/dcr/.config/nvim/extensions/local-lua-debugger-vscode/"
-local lua_version = vim.loop.os_uname().sysname == "macOS" and "lua5.4" or "lua5.3"
+local path = vim.loop.os_uname().sysname == "Darwin" and "/Users/bole/.config/nvim/extensions/local-lua-debugger-vscode/" or "/home/dcr/.config/nvim/extensions/local-lua-debugger-vscode/"
+local lua_version = vim.loop.os_uname().sysname == "Darwin" and "lua5.4" or "lua5.3"
 dap.adapters["local-lua"] = {
     type = "executable",
     command = "node",
