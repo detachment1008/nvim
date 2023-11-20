@@ -27,7 +27,7 @@ function autoFold:ToggleFold()
     end
     flag = not flag
     local pattern1 = "^function"
-    local pattern2 = "^local.+function"
+    local pattern2 = "^local.+function%s*(.*)$"
     local path = vim.fn.expand('%')
     local file_contents = vim.fn.readfile(path)
     vim.cmd("normal zE")
