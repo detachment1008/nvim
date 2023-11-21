@@ -1,6 +1,6 @@
-vim.g.mkdp_auto_start = false -- 设置为 true 后，当你打开一个 Markdown 文件时，预览窗口会自动打开。
+vim.g.mkdp_auto_start = true -- 设置为 true 后，当你打开一个 Markdown 文件时，预览窗口会自动打开。如果自动打开就会自动切换焦点，不想自动切换焦点
 vim.g.mkdp_auto_close = true -- 设置为 true 后，在从 Markdown 缓冲区切换到其他缓冲区时，当前预览窗口会自动关闭。
-vim.g.mkdp_refresh_slow = false -- 设置为 true 后，当你保存文档或退出插入模式时，Markdown 预览会刷新。默认情况下，它会在你编辑或移动光标时自动刷新。
+vim.g.mkdp_refresh_slow = true -- 设置为 true 后，当你保存文档或退出插入模式时，Markdown 预览会刷新。默认情况下，它会在你编辑或移动光标时自动刷新。
 vim.g.mkdp_command_for_global = false -- 设置为 true 后，MarkdownPreview 命令可以用于所有文件，而不仅限于 Markdown 文件。
 vim.g.mkdp_open_to_the_world = false -- 设置为 true 后，预览服务器可供网络中的其他人使用。默认情况下，服务器监听 localhost（127.0.0.1）。
 vim.g.mkdp_open_ip = '' -- 在远程 Vim 上工作并在本地浏览器上进行预览时，可以使用自定义 IP 地址。
