@@ -52,14 +52,14 @@ return require "packer".startup(function(use)
     -- 自动补全
     use "hrsh7th/nvim-cmp"
     use "hrsh7th/cmp-nvim-lsp"
+    use "hrsh7th/cmp-buffer"
+    use "hrsh7th/cmp-path"
+    use "hrsh7th/cmp-cmdline"
 
     -- snippets引擎，不装这个自动补全会出问题
     use "L3MON4D3/LuaSnip"
     use "saadparwaiz1/cmp_luasnip"
     use "rafamadriz/friendly-snippets"
-
-    -- 文件路径
-    use "hrsh7th/cmp-path"
 
     -- gcc 和 gc 注释
     use "numToStr/Comment.nvim"
