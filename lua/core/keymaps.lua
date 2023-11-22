@@ -35,6 +35,26 @@ vim.keymap.set('n', "<F9>", dap.toggle_breakpoint) -- 下断点
 vim.keymap.set('n', "<F10>", dap.step_over) -- 下一步执行
 vim.keymap.set('n', "<F11>", dap.step_into) -- 下一步执行
 
+-- lsp
+-- vim.keymap.set('n', '<leader>rn', ':lua vim.lsp.buf.rename()<CR>') -- 重命名
+-- vim.keymap.set('n', '<leader>ca', ':lua vim.lsp.buf.code_action()<CR>') -- code action
+vim.keymap.set('n', 'gd', ':lua vim.lsp.buf.definition()<CR>') -- 定义
+vim.keymap.set('n', 'gh', ':lua vim.lsp.buf.hover()<CR>') -- 显示提示
+vim.keymap.set('n', 'gD', ':lua vim.lsp.buf.declaration()<CR>') -- 声明
+vim.keymap.set('n', 'gi', ':lua vim.lsp.buf.implementation()<CR>') -- 实现
+vim.keymap.set('n', 'gr', ':lua vim.lsp.buf.references()<CR>') -- 引用
+-- diagnostic
+-- vim.keymap.set('n', 'go', '<:>lua vim.diagnostic.open_float()<CR>', opt)
+-- vim.keymap.set('n', 'gp', '<:>lua vim.diagnostic.goto_prev()<CR>', opt)
+-- vim.keymap.set('n', 'gn', '<:>lua vim.diagnostic.goto_next()<CR>', opt)
+-- vim.keymap.set('n', '<leader>q', '<:>lua vim.diagnostic.setloclist()<CR>', opt)
+-- leader + =
+-- vim.keymap.set('n', '<leader>=', '<:>lua vim.lsp.buf.formatting()<CR>', opt)
+-- vim.keymap.set('n', '<C-k>', '<:>lua vim.lsp.buf.signature_help()<CR>', opt)
+-- vim.keymap.set('n', '<space>wa', '<:>lua vim.lsp.buf.add_workspace_folder()<CR>', opt)
+-- vim.keymap.set('n', '<space>wr', '<:>lua vim.lsp.buf.remove_workspace_folder()<CR>', opt)
+-- vim.keymap.set('n', '<space>wl', '<:>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opt)
+-- vim.keymap.set('n', '<space>D', '<:>lua vim.lsp.buf.type_definition()<CR>', opt)
 -- --------终端模式-------- --
 
 vim.keymap.set('t', "<ESC>", "<C-\\><C-n>")
