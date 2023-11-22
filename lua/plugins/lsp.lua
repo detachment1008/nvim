@@ -44,7 +44,6 @@ require "lspconfig".clangd.setup { capabilities = capabilities }
 --     }
 --   }
 --   end,
---   ["clangd"] = function ()
 --     lspconfig.clangd.setup {
 --       cmd = {
 --         "clangd",
