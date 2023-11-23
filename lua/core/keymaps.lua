@@ -36,6 +36,7 @@ vim.keymap.set('n', "<F10>", dap.step_over) -- 下一步执行
 vim.keymap.set('n', "<F11>", dap.step_into) -- 下一步执行
 
 -- lsp
+vim.keymap.set("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", {silent = true, noremap = true}) -- 函数修复
 vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.declaration()<CR>", {silent = true, noremap = true}) -- 跳转到声明
 vim.keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.definition()<CR>", {silent = true, noremap = true}) -- 跳转到定义
 vim.keymap.set("n", "gh", "<cmd>lua vim.lsp.buf.hover()<CR>", {silent = true, noremap = true}) -- 显示注释文档 跳转到实现
