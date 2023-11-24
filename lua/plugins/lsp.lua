@@ -22,36 +22,50 @@ require "mason-lspconfig".setup({
     },
 })
 
+local inspect = require('vim.inspect')
+
 local capabilities = require "cmp_nvim_lsp".default_capabilities()
+print(inspect(capabilities))
 
 require "lspconfig".lua_ls.setup { capabilities = capabilities }
 require "lspconfig".clangd.setup { capabilities = capabilities }
 
 -- local lspconfig = require('lspconfig')
--- require("mason-lspconfig").setup_handlers({
---   function (server_name)
---     require("lspconfig")[server_name].setup{}
+--
+-- -- 启动 clangd
+-- lspconfig.clangd.setup {
+--   cmd = { "clangd", "--background-index" },
+--   filetypes = {"c", "cpp", "objc", "objcpp"},
+--
+--   -- 设置 .clang-format 文件路径
+--   root_dir = function()
+--     return vim.loop.cwd()
 --   end,
---   -- Next, you can provide targeted overrides for specific servers.
---   ["lua_ls"] = function ()
---     lspconfig.lua_ls.setup {
---       settings = {
---         Lua = {
---           diagnostics = {
---             globals = { "vim" }
---           }
---         }
---     }
---   }
---   end,
---     lspconfig.clangd.setup {
---       cmd = {
---         "clangd",
---         "--header-insertion=never",
---         "--query-driver=/opt/homebrew/opt/llvm/bin/clang",
---         "--all-scopes-completion",
---         "--completion-style=detailed",
+--
+--   -- 设置 LSP 格式化器
+--   settings = {
+--     clangd = {
+--       format = {
+--         FileStyle = "ALLMAN",
+--         Enable = true,
 --       }
 --     }
---   end
+--   }
+-- }
+-- lspconfig.clangd.setup({
+--     filetypes = { "c", "cpp" },
+--     settings = {
+--         ccls = {
+--             format = {
+--                 {
+--                     Command = "clang-format",
+--                     Args = {
+--                         "-style={BasedOnStyle: llvm, IndentWidth: 4, BraceWrapping: { AfterClass: true, AfterFunction: true }}",
+--                         "$FILENAME"
+--                     },
+--                     Stdin = true
+--                 }
+--             }
+--         }
+--     }
 -- })

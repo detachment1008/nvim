@@ -5,7 +5,7 @@ require "nvim-treesitter.configs".setup
     -- 高亮
     highlight = { enable = false },
     -- 自动缩进
-    indent = { enable = true },
+    indent = { enable = false },
     --[[
     rainbow =
     {
