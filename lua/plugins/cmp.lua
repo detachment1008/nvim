@@ -16,10 +16,11 @@ local check_backspace = function()
 end
 
 cmp.setup({
-    snippet = 
+    snippet =
     {
         expand = function(args)
             require "luasnip".lsp_expand(args.body)
+            vim.cmd "Format"
         end,
     },
     mapping = cmp.mapping.preset.insert({

@@ -117,6 +117,8 @@ return require "packer".startup(function(use)
     -- gitsign
     use "lewis6991/gitsigns.nvim"
 
+    use { 'mhartington/formatter.nvim' }
+
     if packer_bootstrap then
         require "packer".sync()
     end

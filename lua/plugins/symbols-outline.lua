@@ -10,7 +10,7 @@ require "symbols-outline".setup {
     show_relative_numbers = false,
     show_symbol_details = false,
     preview_bg_highlight = 'Pmenu',
-    autofold_depth = 0,
+    autofold_depth = 2,
     auto_unfold_hover = true,
     fold_markers = { '', '' },
     wrap = false,
