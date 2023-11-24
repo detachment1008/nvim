@@ -22,10 +22,10 @@ require "mason-lspconfig".setup({
     },
 })
 
-local inspect = require('vim.inspect')
+-- local inspect = require('vim.inspect')
 
 local capabilities = require "cmp_nvim_lsp".default_capabilities()
-print(inspect(capabilities))
+-- print(inspect(capabilities))
 
 require "lspconfig".lua_ls.setup { capabilities = capabilities }
 require "lspconfig".clangd.setup { capabilities = capabilities }
