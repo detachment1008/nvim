@@ -9,7 +9,7 @@ vim.g.mapleader = ' '
 -- 取消高亮
 vim.keymap.set('n', "<leader>hs", ":set hlsearch!<CR>")
 -- F5 c++编译执行
-vim.keymap.set('n', "<f6>", ":w<CR>:!g++ % -std=c++14 -o a.out && ./a.out<CR>")
+vim.keymap.set('n', "<f6>", ":w<CR>:!g++ % -std=c++17 -o a.out && ./a.out<CR>")
 
 -- -------- 命令行模式-------- --
 
