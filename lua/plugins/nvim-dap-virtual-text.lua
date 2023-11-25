@@ -1,33 +1,32 @@
-require("nvim-dap-virtual-text").setup {
-    enabled = true,                        -- enable this plugin (the default)
-    enabled_commands = true,               -- create commands DapVirtualTextEnable, DapVirtualTextDisable, DapVirtualTextToggle, (DapVirtualTextForceRefresh for refreshing when debug adapter did not notify its termination)
-    highlight_changed_variables = true,    -- highlight changed values with NvimDapVirtualTextChanged, else always NvimDapVirtualText
-    highlight_new_as_changed = false,      -- highlight new variables in the same way as changed variables (if highlight_changed_variables)
-    show_stop_reason = true,               -- show stop reason when stopped for exceptions
-    commented = false,                     -- prefix virtual text with comment string
-    only_first_definition = true,          -- only show virtual text at first definition (if there are multiple)
-    all_references = false,                -- show virtual text on all all references of the variable (not only definitions)
-    clear_on_continue = false,             -- clear virtual text on "continue" (might cause flickering when stepping)
-    --- A callback that determines how a variable is displayed or whether it should be omitted
-    --- @param variable Variable https://microsoft.github.io/debug-adapter-protocol/specification#Types_Variable
-    --- @param buf number
-    --- @param stackframe dap.StackFrame https://microsoft.github.io/debug-adapter-protocol/specification#Types_StackFrame
-    --- @param node userdata tree-sitter node identified as variable definition of reference (see `:h tsnode`)
-    --- @param options nvim_dap_virtual_text_options Current options for nvim-dap-virtual-text
-    --- @return string|nil A text how the virtual text should be displayed or nil, if this variable shouldn't be displayed
-    display_callback = function(variable, buf, stackframe, node, options)
-        if options.virt_text_pos == 'inline' then
-            return ' = ' .. variable.value
-        else
-            return variable.name .. ' = ' .. variable.value
-        end
-    end,
-    -- position of virtual text, see `:h nvim_buf_set_extmark()`, default tries to inline the virtual text. Use 'eol' to set to end of line
-    virt_text_pos = vim.fn.has 'nvim-0.10' == 1 and 'inline' or 'eol',
+require("nvim-dap-virtual-text").setup({
+	enabled = true, -- 启用该插件（默认为 true）
+	enabled_commands = true, -- 创建命令 DapVirtualTextEnable、DapVirtualTextDisable、DapVirtualTextToggle（以及 DapVirtualTextForceRefresh，用于在调试适配器未通知终止时进行刷新）
+	highlight_changed_variables = true, -- 使用 NvimDapVirtualTextChanged 高亮已更改的值，否则始终使用 NvimDapVirtualText
+	highlight_new_as_changed = false, -- 与已更改的变量一样高亮新变量（如果 highlight_changed_variables 为真）
+	show_stop_reason = true, -- 停止异常时显示停止原因
+	commented = false, -- 在虚拟文本前添加注释字符串
+	only_first_definition = true, -- 仅在第一次定义时显示虚拟文本（如果有多个定义）
+	all_references = false, -- 在所有引用的变量上显示虚拟文本（不仅限于定义）
+	clear_on_continue = false, -- 在 "continue" 时清除虚拟文本（可能会导致跳动）
+	--- 决定如何显示变量或是否应省略变量的回调函数
+	--- @param variable Variable https://microsoft.github.io/debug-adapter-protocol/specification#Types_Variable
+	--- @param buf number
+	--- @param stackframe dap.StackFrame https://microsoft.github.io/debug-adapter-protocol/specification#Types_StackFrame
+	--- @param node userdata 作为变量定义或引用的 tree-sitter 节点（参见 `:h tsnode`）
+	--- @param options nvim_dap_virtual_text_options nvim-dap-virtual-text 的当前选项
+	--- @return string|nil 虚拟文本的显示方式，或者如果不应显示此变量则返回 nil
+	display_callback = function(variable, buf, stackframe, node, options)
+		if options.virt_text_pos == "inline" then
+			return " = " .. variable.value
+		else
+			return variable.name .. " = " .. variable.value
+		end
+	end,
+	-- 虚拟文本的位置，参见 `:h nvim_buf_set_extmark()`，默认尝试内联虚拟文本。使用 'eol' 来将其设置为行尾
+	virt_text_pos = vim.fn.has("nvim-0.10") == 1 and "inline" or "eol",
 
-    -- experimental features:
-    all_frames = false,                    -- show virtual text for all stack frames not only current. Only works for debugpy on my machine.
-    virt_lines = false,                    -- show virtual lines instead of virtual text (will flicker!)
-    virt_text_win_col = nil                -- position the virtual text at a fixed window column (starting from the first text column) ,
-    -- e.g. 80 to position at column 80, see `:h nvim_buf_set_extmark()`
-}
+	-- 实验性特性：
+	all_frames = false, -- 在所有堆栈帧上显示虚拟文本，而不仅仅是当前帧。只在我的机器上适用于 debugpy。
+	virt_lines = false, -- 显示虚拟行而不是虚拟文本（会闪烁！）
+	virt_text_win_col = nil, -- 将虚拟文本定位在固定的窗口列（从第一列开始），例如 80 表示在第 80 列定位，参见 `:h nvim_buf_set_extmark()`
+})
