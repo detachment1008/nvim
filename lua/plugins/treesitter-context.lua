@@ -1,6 +1,6 @@
 require('treesitter-context').setup {
   enable = true, -- 是否启用插件
-  max_lines = 0, -- 上下文窗口应延伸的最大行数。若值小于等于 0，则表示没有限制。
+  max_lines = 3, -- 上下文窗口应延伸的最大行数。若值小于等于 0，则表示没有限制。
   min_window_height = 0, -- 启用上下文所需的最小窗口高度。若值小于等于 0，则表示没有限制。
   line_numbers = true, -- 是否在上下文窗口中显示行号
   multiline_threshold = 20, -- 每个上下文的最大行数
