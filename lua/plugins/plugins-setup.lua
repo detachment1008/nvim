@@ -35,8 +35,8 @@ return require("packer").startup(function(use)
 	-- 文档树 + 文档树图标
 	use({ "nvim-tree/nvim-tree.lua", requires = { "nvim-tree/nvim-web-devicons" } })
 
-	-- 用ctrl-hjkl来定位窗口
-	use("christoomey/vim-tmux-navigator")
+	-- -- 用ctrl-hjkl来定位窗口
+	-- use("christoomey/vim-tmux-navigator")
 
 	-- 语法高亮
 	use("nvim-treesitter/nvim-treesitter")
