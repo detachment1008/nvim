@@ -47,7 +47,8 @@ vim.keymap.set("n", "gp", "<cmd>lua vim.diagnostic.goto_prev()<CR>", { silent = 
 vim.keymap.set("n", "gn", "<cmd>lua vim.diagnostic.goto_next()<CR>", { silent = true, noremap = true })
 
 -- format
-vim.keymap.set("n", "<C-[>", "<cmd>Format<CR>", { silent = true, noremap = true })
+-- vim.keymap.set("n", "<C-[>", "<cmd>Format<CR>", { silent = true, noremap = true })
+-- vim.keymap.set("n", "<leader>;", "<cmd>Format<CR>", { silent = true, noremap = true })
 
 -- --------终端模式-------- --
 

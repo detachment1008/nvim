@@ -45,18 +45,22 @@ require("formatter").setup({
 		},
 	},
 })
+-- vim.cmd([[
+--     augroup AutoFormatGroup
+--       autocmd!
+--       autocmd InsertLeave * Format
+--     augroup END
+-- ]])
 vim.cmd([[
-    augroup AutoFormatGroup
-      autocmd!
-      autocmd InsertLeave * Format
+    augroup FormatAutogroup
+        autocmd!
+        autocmd BufWritePost * FormatWrite
     augroup END
 ]])
--- autocmd BufWritePost * FormatWrite
--- autocmd FileType cpp inoremap ; ;<C-o>:Format<CR>
 -- vim.cmd([[
 --     augroup FormatAutogroup
 --         autocmd!
---         autocmd FileType cpp inoremap ; ;<Esc>:Format<CR>A
+--         autocmd FileType cpp inoremap ; ;<Esc>:Format<CR>a
 --     augroup END
 -- ]])
 -- vim.cmd
