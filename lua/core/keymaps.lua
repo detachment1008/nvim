@@ -3,6 +3,7 @@
 --]]
 
 vim.g.mapleader = " "
+local platform = vim.loop.os_uname().sysname
 
 -- --------普通模式-------- --
 
@@ -10,6 +11,14 @@ vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>hs", ":set hlsearch!<CR>")
 -- F5 c++编译执行
 vim.keymap.set("n", "<f6>", ":w<CR>:!g++ % -std=c++17 -o a.out && ./a.out<CR>")
+-- 切换头文件和源文件
+function SwitchFile()
+    local type = vim.bo.filetype
+    if type == "c" or type == "cpp" then
+        vim.cmd ("ClangdSwitchSourceHeader")
+    end
+end
+vim.keymap.set('n', '<leader>gf', SwitchFile)
 
 -- -------- 命令行模式-------- --
 
@@ -58,8 +67,6 @@ vim.keymap.set("t", "<ESC>", "<C-\\><C-n>")
 local function get_current_os()
 	-- 导入 vim.loop 模块
 	local os_name
-	-- 获取平台类型
-	local platform = vim.loop.os_uname().sysname
 	-- 根据平台类型确定操作系统名称
 	if platform == "Linux" then
 		os_name = "Linux"
@@ -75,4 +82,4 @@ local function get_current_os()
 	return os_name
 end
 -- 调用函数获取当前操作系统
-local current_os = get_current_os()
+get_current_os()

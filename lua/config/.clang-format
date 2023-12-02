@@ -1,3 +1,4 @@
+# https://releases.llvm.org/8.0.0/tools/clang/docs/ClangFormatStyleOptions.html
 ---
 Language:        Cpp
 BasedOnStyle:  Microsoft
@@ -50,7 +51,7 @@ AllowShortLoopsOnASingleLine: false
 AlwaysBreakAfterDefinitionReturnType: None
 AlwaysBreakAfterReturnType: None # None -> All 函数返回值放在上一行
 AlwaysBreakBeforeMultilineStrings: false
-AlwaysBreakTemplateDeclarations: MultiLine
+AlwaysBreakTemplateDeclarations: Yes # MultiLine -> Yes 强制让模板放在上一行(默认的 MultiLine 好像是短的化就会在同一行了)
 AttributeMacros:
   - __capability
 BinPackArguments: true
@@ -122,7 +123,7 @@ IncludeIsMainRegex: '(Test)?$'
 IncludeIsMainSourceRegex: ''
 IndentAccessModifiers: false
 IndentCaseBlocks: false
-IndentCaseLabels: false
+IndentCaseLabels: true # false -> true switch 中的 case 也有缩进
 IndentExternBlock: AfterExternBlock
 IndentGotoLabels: true
 IndentPPDirectives: None
