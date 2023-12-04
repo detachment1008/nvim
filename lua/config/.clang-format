@@ -2,7 +2,7 @@
 ---
 Language:        Cpp
 BasedOnStyle:  Microsoft
-AccessModifierOffset: -2
+AccessModifierOffset: -4 # public 等不缩进，默认是 4
 AlignAfterOpenBracket: Align
 AlignArrayOfStructures: None
 AlignConsecutiveAssignments:
@@ -18,7 +18,7 @@ AlignConsecutiveBitFields:
   AlignCompound:   false
   PadOperators:    false
 AlignConsecutiveDeclarations:
-  Enabled:         false
+  Enabled:         false # 变量声明时 = 是否对齐
   AcrossEmptyLines: false
   AcrossComments:  false
   AlignCompound:   false

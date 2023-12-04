@@ -27,8 +27,10 @@ _G.MyLuaIndent = function()
     end
     local line = vim.fn.getline(".")
     local str = line:match("^%s*(%w+):")
-    if not str or str == "public" or str == "protected" or str == "private" then
+    if not str then
         return vim.fn.cindent(vim.fn.line("."))
+    elseif str == "public" or str == "protected" or str == "private" then
+        return vim.fn.cindent(vim.fn.line(".")) - 4
     else
         return -1
     end
