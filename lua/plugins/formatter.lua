@@ -37,6 +37,7 @@ require("formatter").setup({
 		},
 
 		cpp = require("config/clangd-format"),
+		c = require("config/clangd-format"),
 
 		-- 使用特殊的 "*" 文件类型来定义任何文件类型的格式化器配置
 		["*"] = {
