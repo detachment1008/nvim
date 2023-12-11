@@ -1,8 +1,7 @@
 local dap = require("dap")
 local dapui = require("dapui")
 
--- vim.opt.signcolumn = "yes"
-vim.opt.signcolumn = "no"
+vim.opt.signcolumn = "yes"
 vim.api.nvim_set_hl(0, "DapBreakpoint", { ctermbg = 0 })
 vim.api.nvim_set_hl(0, "DapLogPoint", { ctermbg = 0 })
 vim.api.nvim_set_hl(0, "DapStopped", { ctermbg = 0 })
