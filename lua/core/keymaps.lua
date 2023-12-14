@@ -10,15 +10,15 @@ local platform = vim.loop.os_uname().sysname
 -- 取消高亮
 vim.keymap.set("n", "<leader>hs", ":set hlsearch!<CR>")
 -- F5 c++编译执行
-vim.keymap.set("n", "<f6>", ":w<CR>:!g++ -g -std=c++17 -o a.out % && ./a.out<CR>")
+vim.keymap.set("n", "<f5>", ":w<CR>:!g++ -g -std=c++17 -o a.out % && ./a.out<CR>")
 -- 切换头文件和源文件
 function SwitchFile()
-    local type = vim.bo.filetype
-    if type == "c" or type == "cpp" then
-        vim.cmd ("ClangdSwitchSourceHeader")
-    end
+	local type = vim.bo.filetype
+	if type == "c" or type == "cpp" then
+		vim.cmd("ClangdSwitchSourceHeader")
+	end
 end
-vim.keymap.set('n', '<leader>gf', SwitchFile)
+vim.keymap.set("n", "<leader>gf", SwitchFile)
 
 -- -------- 命令行模式-------- --
 
@@ -39,7 +39,7 @@ vim.keymap.set("n", "<leader>a", ":HopAnywhere<CR>") -- hop: 跳转任意位置
 
 -- dap
 local dap = require("dap")
-vim.keymap.set("n", "<F5>", dap.continue) -- 开始执行
+vim.keymap.set("n", "<F6>", dap.continue) -- 开始执行
 vim.keymap.set("n", "<F9>", dap.toggle_breakpoint) -- 下断点
 vim.keymap.set("n", "<F10>", dap.step_over) -- 下一步执行
 vim.keymap.set("n", "<F11>", dap.step_into) -- 下一步执行
