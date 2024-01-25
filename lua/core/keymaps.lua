@@ -2,6 +2,7 @@
     键盘映射相关配置
 --]]
 
+vim.api.nvim_set_keymap('n', '<Space>', '<Nop>', { silent = true })
 vim.g.mapleader = " "
 local platform = vim.loop.os_uname().sysname
 
